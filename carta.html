@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Estrella</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 2px solid #ff9999;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: openLetter 3s forwards;
+        }
+        .content {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+        .star {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #ffcc00;
+            animation: shine 1s infinite alternate;
+        }
+        h1 {
+            color: #ff6666;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1.5em;
+        }
+
+        @keyframes openLetter {
+            0% { transform: scaleY(0); }
+            100% { transform: scaleY(1); }
+        }
+
+        @keyframes shine {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+
+        @keyframes revealContent {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container.open .content {
+            display: block;
+            animation: revealContent 1s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="letter">
+        <div class="star"></div>
+        <div class="content">
+            <h1>Para Mi Estrellita</h1>
+            <p>
+                En la noche serena, tus ojos verdes veo,
+como esmeraldas brillan, en el sueño me meo.
+Son faros en la sombra, misterio en la mirada,
+ojos verdes que hechizan, mi alma enamorada.
+            </p>
+          
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('letter').classList.add('open');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
